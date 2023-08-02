@@ -12,7 +12,7 @@ public class ReadTelNumbers {
             throw new RuntimeException("File with name" + file.getName() + " not found");
         }
         try (InputStream inputStream = new FileInputStream(file); Scanner sc = new Scanner(inputStream)) {
-            Pattern pattern = Pattern.compile("(\\(\\d{3}\\)\\s|\\d{3}-)\\d{3}-\\d{4}");
+            Pattern pattern = Pattern.compile("\\(\\d{3}\\) \\d{3}-\\d{4}|\\d{3}-\\d{3}-\\d{4}");
             while (sc.hasNext()) {
                 String str = sc.nextLine();
                 Matcher matcher = pattern.matcher(str);
